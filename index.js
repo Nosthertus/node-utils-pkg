@@ -6,7 +6,7 @@
  */
 module.exports.isArray = function(arr){
 	return Object.prototype.toString.call(arr) == "[object Array]";
-}
+};
 
 /**
  * Check if a value is inside an Array
@@ -28,7 +28,7 @@ module.exports.inArray = function(arr, val){
 	}
 
 	return arr.indexOf(val) > -1;
-}
+};
 
 /**
  * Check if a value is Number
@@ -38,7 +38,7 @@ module.exports.inArray = function(arr, val){
  */
 module.exports.isNumber = function(int){
 	return Object.prototype.toString.call(int) == "[object Number]";
-}
+};
 
 /**
  * Check if value is Object
@@ -48,7 +48,32 @@ module.exports.isNumber = function(int){
  */
 module.exports.isObject = function(obj){
 	return Object.prototype.toString.call(obj) == "[object Object]";
-}
+};
+
+/**
+ * Check if a value exists as key object
+ * 
+ * @param  {Object} 	  obj Object to find the keys
+ * @param  {String|Array} key Key value to check if is in object
+ * @return {Boolean}     	  Wheter the value is found
+ */
+module.exports.inKeyObject = function(obj, key){
+	if(this.isArray(key)){
+		var arr = [];
+
+		for(k in obj)
+			arr.push(k);
+
+		return this.inArray(arr, key);
+	};
+
+	for(k in obj){
+		if(k == key)
+			return true;
+	}
+
+	return false;
+};
 
 /**
  * Check if a value is String
@@ -58,4 +83,4 @@ module.exports.isObject = function(obj){
  */
 module.exports.isString = function(str){
 	return Object.prototype.toString.call(str) == "[object String]";
-}
+};
