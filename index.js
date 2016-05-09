@@ -30,6 +30,28 @@ module.exports.inArray = function(arr, val){
 	return arr.indexOf(val) > -1;
 };
 
+
+/**
+ * Check if a value is a valid JSON string
+ * 
+ * @param  {Any}  	 json The value to check if is JSON string
+ * @return {Boolean}      Wheter the value is valid JSON string
+ */
+module.exports.isJSON = function(json){
+	if(this.isString(json)){
+		try{
+			JSON.parse(json);
+		}
+		catch(e){
+			return false;
+		}
+
+		return true;
+	}
+
+	return false;
+}
+
 /**
  * Check if a value is Number
  * 
