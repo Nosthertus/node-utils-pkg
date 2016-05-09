@@ -31,6 +31,16 @@ module.exports.inArray = function(arr, val){
 }
 
 /**
+ * Check if a value is Number
+ * 
+ * @param  {Any}  	 int Value to check if is integer
+ * @return {Boolean}     Wheter the value is number or not
+ */
+module.exports.isNumber = function(int){
+	return Object.prototype.toString.call(int) == "[object Number]";
+}
+
+/**
  * Check if value is Object
  * 
  * @param  {Any}     obj  Variable passed
@@ -38,4 +48,14 @@ module.exports.inArray = function(arr, val){
  */
 module.exports.isObject = function(obj){
 	return Object.prototype.toString.call(obj) == "[object Object]";
+}
+
+/**
+ * Check if a value is String
+ * 
+ * @param  {Any}  	 str Value to check if is string
+ * @return {Boolean}     Wheter the value is string or not
+ */
+module.exports.isString = function(str){
+	return Object.prototype.toString.call(str) == "[object String]";
 }
