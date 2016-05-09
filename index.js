@@ -9,6 +9,28 @@ module.exports.isArray = function(arr){
 }
 
 /**
+ * Check if a value is inside an Array
+ * 
+ * @param  {Array} 		  arr Array where to find the value
+ * @param  {String|Array} val Value to check if is in array
+ * @return {Boolean}     	  Whether the value/values are found in the array
+ */
+module.exports.inArray = function(arr, val){
+	if(this.isArray(val)){
+		var matched = 0;
+
+		for (var i = 0; i < val.length; i++) {
+			if(this.inArray(arr, val[i]))
+				matched++;
+		}
+
+		return matched == val.length;
+	}
+
+	return arr.indexOf(val) > -1;
+}
+
+/**
  * Check if value is Object
  * 
  * @param  {Any}     obj  Variable passed
