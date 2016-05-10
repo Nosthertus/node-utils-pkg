@@ -106,3 +106,18 @@ module.exports.inKeyObject = function(obj, key){
 module.exports.isString = function(str){
 	return Object.prototype.toString.call(str) == "[object String]";
 };
+
+/**
+ * Transforms array into string
+ * 
+ * @param  {Array}  arr Array to transform
+ * @param  {String} spr Optional: value separator for each element
+ * @return {String}     Array stringified
+ */
+module.exports.arrayToString = function(arr, spr){
+	if(spr){
+		return arr.join(spr);
+	}
+
+	return arr.join(" ");
+}
