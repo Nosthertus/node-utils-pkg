@@ -98,6 +98,22 @@ module.exports.inKeyObject = function(obj, key){
 };
 
 /**
+ * Get all index values inside an Array/Object and returns an array
+ * 
+ * @param  {Object|Array} obj The Array/Object to gather index values
+ * @return {Array}      	  The list of all index values found
+ */
+module.exports.getIndexObject = function(obj){
+	var arr = [];
+
+	for(k in obj){
+		arr.push(k);
+	}
+
+	return arr;
+}
+
+/**
  * Check if a value is String
  * 
  * @param  {Any}  	 str Value to check if is string
