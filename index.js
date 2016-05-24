@@ -137,3 +137,49 @@ module.exports.arrayToString = function(arr, spr){
 
 	return arr.join(" ");
 }
+
+/**
+ * Iterates array or object synchronously
+ * 
+ * @param  {Array|Object}   obj     Array/Object to make iteration
+ * @param  {Function} 		cb      Function with index, value and function to continue
+ * @param  {Function}       finish  Function when iteration finishes
+ */
+module.exports.each = function(obj, cb, finish){
+	var pkg = this; //Define this for inner functions use
+	var keys = pkg.getIndexObject(obj);
+	var count = 0;
+	var index;
+	var done = false;
+
+	function getKey(){
+		if(pkg.isArray(obj)){
+			index = count;
+		}
+
+		if(pkg.isObject(obj)){
+			index = keys[count];
+		}
+	}
+
+	function iterate(){
+		if(keys.length > count){
+			getKey();
+			cb(index, obj[index], next);
+		}
+
+		else{
+			if(finish)
+				finish();
+
+			return true;
+		}
+	}
+
+	function next(){
+		count++;
+		iterate();
+	}
+
+	iterate();
+}
