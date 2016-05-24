@@ -103,7 +103,7 @@ module.exports.inKeyObject = function(obj, key){
  * @param  {Object|Array} obj The Array/Object to gather index values
  * @return {Array}      	  The list of all index values found
  */
-module.exports.getIndexObject = function(obj){
+module.exports.getIndexObject = Object.keys || function(obj){
 	var arr = [];
 
 	for(k in obj){
