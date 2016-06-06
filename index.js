@@ -89,12 +89,7 @@ module.exports.inKeyObject = function(obj, key){
 		return this.inArray(arr, key);
 	};
 
-	for(k in obj){
-		if(k == key)
-			return true;
-	}
-
-	return false;
+	return obj.hasOwnProperty(key);
 };
 
 /**
