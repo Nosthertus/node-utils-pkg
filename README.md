@@ -18,6 +18,8 @@ utils.isArray([1, 2, 3]); // Returns true
 utils.isArray(true);      // Returns false
 ```
 
+* * *
+
 **.inArray(Array, [String | Array])** => Boolean
 
 Checks if a value is inside an Array
@@ -31,9 +33,12 @@ utils.inArray(arr, ["a", "c"]);  // Returns true
 utils.inArray(arr, ["a", "e"]);  // Returns false
 ```
 
+* * *
+
 **.isJSON(Value)** => Boolean
 
 Check if the given value is a valid JSON
+
 Function tries to parse the value, in case the parsing failes the function will return false
 ```Javascript
 var jsonString = '{"name":"nost","email":"nosthertus@gmail.com"}';
@@ -41,9 +46,13 @@ var jsonString = '{"name":"nost","email":"nosthertus@gmail.com"}';
 utils.isJSON(jsonString);  // Returns true
 utils.isJSON({});          // Returns false
 ```
+
+* * *
+
 **.isNumber(Value)** => Boolean
 
 Checks if the given value is Number type
+
 function calls **Object.prototype**
 ```Javascript
 utils.isNumber(1);        // Returns true
@@ -51,18 +60,24 @@ utils.isNumber(1.2);      // Returns true
 utils.isNumber("2");      // Returns false
 ```
 
+* * *
+
 **.isObject(Value)** => Boolean
 
 Checks if the given value is Object
+
 function calls **Object.prototype**
 ```Javascript
 utils.isObject({});       // Returns true
 utils.isObject([]);       // Returns false
 ```
 
+* * *
+
 **.inKeyObject(Object, [String | Array])** => Boolean
 
 Check if the given object has the property name as the given String
+
 if the second parameter is an Array, it will turn all propertys into array and call **inArray()**
 ```Javascript
 var obj = {
@@ -75,9 +90,12 @@ utils.inKeyObject(obj, ["name", "email"]);  //Returns true
 utils.inKeyObject(obj, ["name", "age"]);    //Returns false
 ```
 
+* * *
+
 **.getIndexObject(Object)** => Array
 
 Gathers all properties from the object
+
 function calls **Object.keys**
 ```Javascript
 var obj = {
@@ -88,23 +106,31 @@ var obj = {
 utils.getIndexObject(obj);  //Returns ["name", "email"]
 ```
 
+* * *
+
 **.isString(Value)** => Boolean
 
 Checks if the given value is String
+
 function calls **Object.prototype**
 ```Javascript
 utils.isString("Hello world");  //Returns true
 utils.isString(2);              //Returns false
 ```
 
+* * *
+
 **.arrayToString(Array, *Optional String[Separator])** => String
 
 Turns array into string separated by separator
+
 if no separator is given, the array will be separated by space
 ```Javascript
 utils.arrayToString(["Hello", "World"]);       //Returns "Hello World"
 utils.arrayToString(["Hello", "World"], ",");  //Returns "Hello,World"
 ```
+
+* * *
 
 **.each(Array | Object, fn[Callback iterator], *Optional fn[Callback finish])**
 
