@@ -106,6 +106,34 @@ module.exports.getIndexObject = Object.keys || function(obj){
 	}
 
 	return arr;
+};
+
+/**
+ * Change the key name in an object
+ * 
+ * @param  {Object}  obj   The object where to make the change
+ * @param  {String}  oldp  The key name to change in object
+ * @param  {String}  newp  The new key name to replace
+ * @param  {Boolean} alter Whether alter the object itself
+ * @return {Object}        If alter is present, then returns the new object
+ */
+module.exports.changeKeyName = function(obj, oldp, newp, alter){
+	if(this.isObject(obj)){
+		if(alter){
+			obj[newp] = obj[oldp];
+			delete obj[oldp];
+
+			return obj;
+		}
+
+		else{
+			var newobj = obj;
+			newobj[newp] = obj[oldp];
+			delete newobj[oldp];
+
+			return newobj;
+		}
+	}
 }
 
 /**

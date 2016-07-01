@@ -108,6 +108,25 @@ utils.getIndexObject(obj);  //Returns ["name", "email"]
 
 * * *
 
+**.changeKeyName([Object], oldKey[String], newKey[String], [Boolean])** => Object
+
+Change the key name in an object
+If 4th parameter is present, the function will alter the Object
+
+```Javascript
+var obj = {
+	name: "nost",
+	email: "nosthertus@gmail.com"
+};
+
+utils.changeKeyName(obj, "name", "nickName");  //Returns {nickName: "nost", email: "nosthertus@gmail.com"}
+
+utils.changeKeyName(obj, "name", "nickName", true); //Object is altered
+console.log(obj);  //{nickName: "nost", email: "nosthertus@gmail.com"}
+```
+
+* * *
+
 **.isString(Value)** => Boolean
 
 Checks if the given value is String
