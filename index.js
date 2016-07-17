@@ -218,7 +218,11 @@ module.exports.isFalsy = function(value){
 		return true;
 	}
 
-	if(value == null){
+	else if(value == null){
+		return true;
+	}
+
+	else if(this.isNumber(value) && Number.isNaN(value)){
 		return true;
 	}
 
