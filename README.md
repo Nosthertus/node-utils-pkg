@@ -20,17 +20,15 @@ utils.isArray(true);      // Returns false
 
 * * *
 
-**.inArray(Array, [String | Array])** => Boolean
+**.isNumber(Value)** => Boolean
 
-Checks if a value is inside an Array
-in case if the value to look is also an array, the function will return true if all elements from the value are found
+Checks if the given value is Number type
+
+function calls **Object.prototype**
 ```Javascript
-var arr = ["a", "b", "c", "d"];
-
-utils.inArray(arr, "a");         // Returns true
-utils.inArray(arr, 2);           // Returns false
-utils.inArray(arr, ["a", "c"]);  // Returns true
-utils.inArray(arr, ["a", "e"]);  // Returns false
+utils.isNumber(1);        // Returns true
+utils.isNumber(1.2);      // Returns true
+utils.isNumber("2");      // Returns false
 ```
 
 * * *
@@ -49,19 +47,6 @@ utils.isJSON({});          // Returns false
 
 * * *
 
-**.isNumber(Value)** => Boolean
-
-Checks if the given value is Number type
-
-function calls **Object.prototype**
-```Javascript
-utils.isNumber(1);        // Returns true
-utils.isNumber(1.2);      // Returns true
-utils.isNumber("2");      // Returns false
-```
-
-* * *
-
 **.isObject(Value)** => Boolean
 
 Checks if the given value is Object
@@ -70,6 +55,44 @@ function calls **Object.prototype**
 ```Javascript
 utils.isObject({});       // Returns true
 utils.isObject([]);       // Returns false
+```
+
+* * *
+
+**.isString(Value)** => Boolean
+
+Checks if the given value is String
+
+function calls **Object.prototype**
+```Javascript
+utils.isString("Hello world");  //Returns true
+utils.isString(2);              //Returns false
+```
+
+* * *
+
+**.isBoolean(Value)** => Boolean
+
+Checks if the given value is Boolean
+
+function calls **Object.prototype**
+```Javascript
+utils.isBoolean("true");         //Returns false
+utils.isBoolean(true);           //Returns true
+utils.isBoolean(false);          //Returns true
+```
+
+**.inArray(Array, [String | Array])** => Boolean
+
+Checks if a value is inside an Array
+in case if the value to look is also an array, the function will return true if all elements from the value are found
+```Javascript
+var arr = ["a", "b", "c", "d"];
+
+utils.inArray(arr, "a");         // Returns true
+utils.inArray(arr, 2);           // Returns false
+utils.inArray(arr, ["a", "c"]);  // Returns true
+utils.inArray(arr, ["a", "e"]);  // Returns false
 ```
 
 * * *
@@ -123,18 +146,6 @@ utils.changeKeyName(obj, "name", "nickName");  //Returns {nickName: "nost", emai
 
 utils.changeKeyName(obj, "name", "nickName", true); //Object is altered
 console.log(obj);  //{nickName: "nost", email: "nosthertus@gmail.com"}
-```
-
-* * *
-
-**.isString(Value)** => Boolean
-
-Checks if the given value is String
-
-function calls **Object.prototype**
-```Javascript
-utils.isString("Hello world");  //Returns true
-utils.isString(2);              //Returns false
 ```
 
 * * *
