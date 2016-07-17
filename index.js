@@ -206,3 +206,23 @@ module.exports.each = function(obj, cb, finish){
 
 	iterate();
 }
+
+/**
+ * Checks if a value is falsy
+ * 
+ * @param  {Any}     value Value to check
+ * @return {Boolean}       Whether is falsy or not
+ */
+module.exports.isFalsy = function(value){
+	if(value == false){
+		return true;
+	}
+
+	if(value == null){
+		return true;
+	}
+
+	else{
+		return false;
+	}
+}
