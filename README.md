@@ -189,6 +189,23 @@ utils.each(obj, iteration, finish); //Iteration function for obj Object
 utils.each(arr, iteration, finish); //Iteration function for arr Array
 ```
 
+* * *
+
+**.isFalsy(Value [Any])** => Boolean
+
+Checks if a value is falsy
+
+Check for Mozilla's Falsy glossary [Here](https://developer.mozilla.org/en-US/docs/Glossary/Falsy)
+```Javascript
+utils.isFalsy(false);       //Returns true
+utils.isFalsy(null);        //Returns true
+utils.isFalsy(undefined);   //Returns true
+utils.isFalsy(0);           //Returns true
+utils.isFalsy(NaN);         //Returns true
+utils.isFalsy('');          //Returns true
+utils.isFalsy("");          //Returns true
+```
+
 ## Contributing
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
