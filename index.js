@@ -173,13 +173,13 @@ module.exports.arrayToString = function(arr, spr){
 /**
  * Iterates array or object synchronously
  * 
- * @param  {Array|Object}   obj     Array/Object to make iteration
- * @param  {Function} 		cb      Function with index, value and function to continue
- * @param  {Function}       finish  Function when iteration finishes
+ * @param  {Array|Object|Integer}   obj     Array/Object/Integer to make iteration
+ * @param  {Function} 		        cb      Function with index, value and function to continue
+ * @param  {Function}               finish  Function when iteration finishes
  */
 module.exports.each = function(obj, cb, finish){
 	var pkg = this; //Define this for inner functions use
-	var keys = pkg.getIndexObject(obj);
+	var keys = pkg.isNumber(obj) ? obj : pkg.getIndexObject(obj); //If paramter is number, set value number
 	var count = 0;
 	var index;
 	var done = false;
@@ -195,7 +195,13 @@ module.exports.each = function(obj, cb, finish){
 	}
 
 	function iterate(){
-		if(keys.length > count){
+		// Iterate over a number if passed value is number
+		if(pkg.isNumber(obj) && obj > count){
+			cb(count + 1, next);
+		}
+
+		// Iterate over an object if passed value is Array or Object
+		else if(keys.length > count){
 			getKey();
 			cb(index, obj[index], next);
 		}
