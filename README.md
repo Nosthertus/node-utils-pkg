@@ -162,14 +162,16 @@ utils.arrayToString(["Hello", "World"], ",");  //Returns "Hello,World"
 
 * * *
 
-**.each(Array | Object, fn[Callback iterator], *Optional fn[Callback finish])**
+**.each(Array | Object | Integer, fn[Callback iterator], *Optional fn[Callback finish])**
 
-Iterates each element of the Array|Object, this is not synchronous but it can simulate synchronous iterations with callbacks
+Iterates each element of the Array|Object or iterates over a number in case the passed value is Integer, this is not synchronous but it can simulate synchronous iterations with callbacks
 
-**Callback iterator** has 3 parameters:
+**Callback iterator** has 3 parameters in case the value is Object/Array:
 - **index**  => The current index iteration, if Object then it's property
 - **value**  => The value of the current intex, if Object then it's property's value
 - **next()** => Function that continues for the next iteration
+
+**Note:** if passed value is integer, only **index** and **next()** are available, **index** is the current count
 
 **Callback finish** function will be called once all the iterations are done
 ```Javascript
@@ -198,6 +200,17 @@ var finish = function(){
 
 utils.each(obj, iteration, finish); //Iteration function for obj Object
 utils.each(arr, iteration, finish); //Iteration function for arr Array
+
+//For integer case
+utils.each(100, function(count, next){
+	console.log(count);
+
+	setTimeout(function(){
+		next();
+	}, 100);
+}, function(){
+	console.log("Count completed");
+});
 ```
 
 * * *
