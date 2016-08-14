@@ -13,10 +13,7 @@
   "keywords": [
     "utils"
   ],
-  "author": {
-    "name": "Nosthertus",
-    "email": "nosthertus@gmail.com"
-  },
+  "author": "Nosthertus <nosthertus@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Nosthertus/node-utils-pkg/issues"
