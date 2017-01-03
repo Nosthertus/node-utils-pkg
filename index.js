@@ -245,3 +245,29 @@ module.exports.isFalsy = function(value){
 		return false;
 	}
 }
+
+/**
+ * Merges properties of 2 objects
+ * 
+ * @param  {Object} obj1 The object for mergin properties
+ * @param  {Object} obj2 The object for mergin properties
+ * @throws {Error}  If   One of the parameters is not an object
+ * @return {Object}      The object with new merged property values
+ */
+module.exports.merge = function(obj1, obj2){
+	if(!this.isObject(obj1) || !this.isObject(obj1)){
+		throw new Error("Parameter must be an object");
+	}
+
+	var obj = {};
+
+	for(prop in obj1){
+		obj[prop] = obj1[prop];
+	}
+
+	for(prop in obj2){
+		obj[prop] = obj2[prop];
+	}
+
+	return obj;
+}

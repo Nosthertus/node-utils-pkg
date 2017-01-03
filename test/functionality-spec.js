@@ -144,3 +144,40 @@ describe("check iteration", function(){
 		utils.each(5, each.iterate, each.finished);
 	});
 });
+
+describe("check object merging", function(){
+	it("should merge 2 objects with new value", function(){
+		var obj1 = {
+			foo: "bar",
+		};
+
+		var obj2 = {
+			foo: "val"
+		};
+
+		var obj = utils.merge(obj1, obj2);
+
+		expect(obj).toIncludeKey("foo");
+		expect(obj.foo).toBe("val");
+	});
+
+	it("should merge 2 objects with new properties", function(){
+		var obj1 = {
+			foo: "bar",
+		};
+
+		var obj2 = {
+			prop: "val"
+		};
+
+		var obj = utils.merge(obj1, obj2);
+
+		expect(obj).toIncludeKeys(["foo", "prop"]);
+	});
+
+	it("should throw error if parameters are not object", function(){
+		expect(function(){
+			utils.merge("test", 1);
+		}).toThrow("Parameter must be an object");
+	});
+});
