@@ -1,5 +1,8 @@
 # node-utils-pkg
+[![Build Status](https://travis-ci.org/Nosthertus/node-utils-pkg.svg?branch=master)](https://travis-ci.org/Nosthertus/node-utils-pkg)
+
 Utility package for Node.js
+
 ## Installation
 ```bash
 $ npm install utils-pkg --save
@@ -81,6 +84,23 @@ utils.isBoolean("true");         //Returns false
 utils.isBoolean(true);           //Returns true
 utils.isBoolean(false);          //Returns true
 ```
+
+* * *
+
+**.isFunction(Value)** => Boolean
+
+Checks if the given value is function
+
+```Javascript
+var func = function(){};
+
+utils.isFunction(true);         //Returns false
+utils.isFunction(func);         //Returns true
+utils.isFunction(function(){}); //Returns true
+utils.isFunction("function");   //Returns false
+```
+
+* * *
 
 **.inArray(Array, [String | Array])** => Boolean
 
