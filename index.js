@@ -70,6 +70,16 @@ module.exports.isBoolean = function(bool){
 }
 
 /**
+ * Checks if the value is function
+ * 
+ * @param  {Any}     fnc Value to check if is function
+ * @return {Boolean}     Whether the value is function or not
+ */
+module.exports.isFunction = function(fnc){
+	return typeof fnc == "function";
+}
+
+/**
  * Check if a value is inside an Array
  * 
  * @param  {Array} 		  arr Array where to find the value
