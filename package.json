@@ -1,6 +1,6 @@
 {
   "name": "utils-pkg",
-  "version": "0.13.0",
+  "version": "1.0.0",
   "description": "utility package for Node.js",
   "main": "index.js",
   "scripts": {
