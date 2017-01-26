@@ -31,4 +31,9 @@ describe("type validation", function(){
 		expect(utils.isBoolean(true)).toBe(true);
 		expect(utils.isBoolean("true")).toBe(false);
 	});
+
+	it("should correctly validate function value", function(){
+		expect(utils.isFunction(function(){})).toBe(true);
+		expect(utils.isFunction("function")).toBe(false);
+	});
 })
