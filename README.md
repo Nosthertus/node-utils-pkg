@@ -102,6 +102,33 @@ utils.isFunction("function");   //Returns false
 
 * * *
 
+**.isEqual(Any, Any)** => Boolean
+
+Compares both values structure.
+
+PS: it does not compare null and undefined values
+
+```Javascript
+var obj1 = {
+	name: "nosthertus",
+	languages: ["english", "spanish"]
+};
+
+var obj2 = {
+	name: "nosthertus",
+	languages: ["english", "spanish"]
+};
+
+var obj3 = "nosthertus";
+
+utils.isEqual([], []]);      //Returns true
+utils.isEqual(obj1, obj2);   //Returns true
+utils.isEqual(obj1, obj3);   //Returns false
+utils.isEqual(obj1, null);   //Returns false
+```
+
+* * *
+
 **.inArray(Array, [String | Array])** => Boolean
 
 Checks if a value is inside an Array
