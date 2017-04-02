@@ -37,7 +37,7 @@ module.exports.isJSON = function(json){
 	}
 
 	return false;
-}
+};
 
 /**
  * Check if value is Object
@@ -67,7 +67,7 @@ module.exports.isString = function(str){
  */
 module.exports.isBoolean = function(bool){
 	return Object.prototype.toString.call(bool) == "[object Boolean]";
-}
+};
 
 /**
  * Checks if the value is function
@@ -77,7 +77,78 @@ module.exports.isBoolean = function(bool){
  */
 module.exports.isFunction = function(fnc){
 	return typeof fnc == "function";
-}
+};
+
+/**
+ * Checks if both values have the same value structure
+ * 
+ * @param  {Any}     obj1 The first value to make the comparison
+ * @param  {Anu}     obj2 The second value used for the comparison with the first
+ * @return {Boolean}      Whether both values have exactly the same structure
+ */
+module.exports.isEqual = function(obj1, obj2){
+	var self = this;
+
+	// Check if one of the values is not undefined/null type
+	if((typeof obj1 == "undefined" || typeof obj2 == "undefied") || (obj1 == null || obj2 == null)){
+		return false;
+	}
+
+	// Check if both values have the same length
+	// return false if length differ
+	else if(Object.keys(obj1).length != Object.keys(obj2).length){
+		return false;
+	}
+
+	else{
+		var prop1 = Object.prototype.toString.call(obj1);
+		var prop2 = Object.prototype.toString.call(obj2);
+
+		// Check if both values are the same object type
+		// retur false if both are differents
+		if(prop1 != prop2){
+			return false;
+		}
+
+		// Check deep objects if both values are object type of Array or Object
+		else if(prop1 == "[object Array]" || prop1 == "[object Object]"){
+			for(p in obj1){
+				// return false if the second object does not contain the same
+				// property/element as the first object
+				if(typeof obj2[p] === "undefined"){
+					return false;
+				}
+
+				else{
+					var prototype1 = Object.prototype.toString.call(obj1[p]);
+					var prototype2 = Object.prototype.toString.call(obj2[p]);
+
+					// return false if both object property/element are different
+					if(prototype1 != prototype2){
+						return false;
+					}
+
+					// do recursive call if both property/array value are object or array
+					else if(prototype1 == "[object Array]" || prototype1 == "[object Object]"){
+						return self.isEqual(obj1[p], obj2[p]);
+					}
+
+					// return false if both simple values are not the same
+					else if(obj1[p] != obj2[p]){
+						return false;
+					}
+				}
+			}
+		}
+
+		// Return the result of value comparison if both values are simple values
+		else{
+			return obj1 == obj2;
+		}
+	}
+
+	return true;
+};
 
 /**
  * Check if a value is inside an Array

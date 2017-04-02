@@ -36,4 +36,23 @@ describe("type validation", function(){
 		expect(utils.isFunction(function(){})).toBe(true);
 		expect(utils.isFunction("function")).toBe(false);
 	});
+
+	it("should correctly validate object structure equality", function(){
+		var obj1 = {
+			name: "nosthertus",
+			languages: ["english", "spanish"]
+		};
+
+		var obj2 = {
+			name: "nosthertus",
+			languages: ["english", "spanish"]
+		};
+
+		var obj3 = "nosthertus";
+
+		expect(utils.isEqual([], [])).toBe(true);
+		expect(utils.isEqual(obj1, obj2)).toBe(true);
+		expect(utils.isEqual(obj1, obj3)).toBe(false);
+		expect(utils.isEqual(obj1, null)).toBe(false);
+	});
 })
